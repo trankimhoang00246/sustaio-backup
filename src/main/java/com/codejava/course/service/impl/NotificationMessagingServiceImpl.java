@@ -1,7 +1,10 @@
 package com.codejava.course.service.impl;
 
 import com.codejava.course.model.dto.NotificationMassageDto;
+import com.codejava.course.repository.NotificationRepository;
+import com.codejava.course.repository.UserRepository;
 import com.codejava.course.service.NotificationMessagingService;
+import com.codejava.course.utils.SecurityUtils;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Service;
 @Log4j2
 public class NotificationMessagingServiceImpl implements NotificationMessagingService {
     private final FirebaseMessaging firebaseMessaging;
+    private final NotificationRepository notificationRepository;
+    private final UserRepository userRepository;
 
     public String sendNotification(NotificationMassageDto notificationMassageDto) {
         Notification notification = Notification.builder()
@@ -30,7 +35,17 @@ public class NotificationMessagingServiceImpl implements NotificationMessagingSe
 
         try {
             String id = firebaseMessaging.send(msg);
-            log.info("Successfully sent message: " + msg);
+
+            notificationRepository.save(
+                    com.codejava.course.model.entity.Notification.builder()
+                            .title(notificationMassageDto.getTitle())
+                            .content(notificationMassageDto.getMessage())
+                            .imageUrl(notificationMassageDto.getImageUrl())
+                            .user(userRepository.findByUsername(SecurityUtils.getUsernameOfPrincipal())
+                                    .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + SecurityUtils.getUsernameOfPrincipal())))
+                            .build()
+            );
+            log.info("Successfully sent message: " + id);
             return id;
         } catch (FirebaseMessagingException e) {
             e.printStackTrace();
