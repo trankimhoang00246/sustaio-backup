@@ -29,7 +29,7 @@ public class NotificationMessagingServiceImpl implements NotificationMessagingSe
                 .build();
 
         Message msg = Message.builder()
-                .setToken(notificationMassageDto.getRecipientToken())
+                .setToken("eId9noRKRaS6A39G8ysFjx:APA91bFfKYC2LCDP5PC-JYhaRWPIsrASu-My5Z63TOUoQKAWzEtAQy_pB_ealgHkrdO7e8-HDzj2KbEgWQU4KeCos3J3xYxcAS9TxGsMYukCq3F243BM9gT6vrr5ENPdhCIk79fY_3aW")
                 .setNotification(notification)
                 .build();
 
@@ -41,8 +41,8 @@ public class NotificationMessagingServiceImpl implements NotificationMessagingSe
                             .title(notificationMassageDto.getTitle())
                             .content(notificationMassageDto.getMessage())
                             .imageUrl(notificationMassageDto.getImageUrl())
-                            .user(userRepository.findByUsername(SecurityUtils.getUsernameOfPrincipal())
-                                    .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + SecurityUtils.getUsernameOfPrincipal())))
+                            .user(userRepository.findByUsername(notificationMassageDto.getUsername())
+                                    .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + notificationMassageDto.getUsername())))
                             .build()
             );
             log.info("Successfully sent message: " + id);

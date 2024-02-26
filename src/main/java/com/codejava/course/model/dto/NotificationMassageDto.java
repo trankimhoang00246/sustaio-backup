@@ -8,8 +8,8 @@ import java.util.Map;
 @Data
 @Builder
 public class NotificationMassageDto {
-    private String recipientToken;
     private String title;
     private String message;
     private String imageUrl;
+    private String username;
 }
