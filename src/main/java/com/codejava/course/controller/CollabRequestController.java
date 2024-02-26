@@ -47,7 +47,7 @@ public class CollabRequestController {
         notificationMessagingService.sendNotification(
                 NotificationMassageDto.builder()
                         .title("Collab Request Updated")
-                        .message("Collab request with id " + id + " has been " + status)
+                        .message("Request with id " + id + " has been " + status.toLowerCase())
                         .imageUrl("https://picsum.photos/500/500")
                         .username(collabRequestDto.getUserDto().getUsername())
                         .build()
