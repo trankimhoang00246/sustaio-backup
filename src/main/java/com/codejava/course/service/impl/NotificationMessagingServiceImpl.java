@@ -26,8 +26,6 @@ public class NotificationMessagingServiceImpl implements NotificationMessagingSe
         Message msg = Message.builder()
                 .setToken(notificationMassageDto.getRecipientToken())
                 .setNotification(notification)
-                //.putAllData(notificationMassageDto.getData())
-                .setTopic(notificationMassageDto.getTopic())
                 .build();
 
         try {

@@ -12,6 +12,4 @@ public class NotificationMassageDto {
     private String title;
     private String message;
     private String imageUrl;
-    private String topic;
-    private Map<String, String> data;
 }
