@@ -29,7 +29,7 @@ public class NotificationMessagingServiceImpl implements NotificationMessagingSe
                 .build();
 
         Message msg = Message.builder()
-                .setToken("eId9noRKRaS6A39G8ysFjx:APA91bFfKYC2LCDP5PC-JYhaRWPIsrASu-My5Z63TOUoQKAWzEtAQy_pB_ealgHkrdO7e8-HDzj2KbEgWQU4KeCos3J3xYxcAS9TxGsMYukCq3F243BM9gT6vrr5ENPdhCIk79fY_3aW")
+                .setToken("dU6yivTrSwuAsMjpRdaeSH:APA91bGolQjBMIe6YkR4qt7TthrfvLj0rdXl_NGZBokWbNcWBUPq9XSEZmlUde9nH-B25TlnedxJB5kgdwLcvp8L8TIO8LuhE1SNQjA1dtJ7IUEG2Ssa4ISx09zd7p1u9eFegFecsv25")
                 .setNotification(notification)
                 .build();
 
