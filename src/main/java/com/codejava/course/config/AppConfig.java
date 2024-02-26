@@ -44,7 +44,7 @@ public class AppConfig {
                             .username("admin")
                             .password(passwordEncoder.encode("admin"))
                             .role(adminRole)
-                            .avatarUrl("https://i.pinimg.com/564x/5f/40/6a/5f406ab25e8942cbe0da6485afd26b71.jpg")
+                            .avatarUrl("https://picsum.photos/500/500")
                             .build());
         }
         if(!userRepository.existsByUsername("farmer")) {
@@ -55,7 +55,7 @@ public class AppConfig {
                             .username("farmer")
                             .password(passwordEncoder.encode("farmer"))
                             .role(farmerRole)
-                            .avatarUrl("https://i.pinimg.com/564x/8a/dc/7a/8adc7a0ce98bc961743fbdd058e0dd24.jpg")
+                            .avatarUrl("https://picsum.photos/500/500")
                             .build());
         }
         if(!userRepository.existsByUsername("enterprise1")) {
@@ -90,7 +90,7 @@ public class AppConfig {
                             .title(title)
                             .content(message)
                             .user(userRepository.findById(2L).get())
-                            .imageUrl("https://i.pinimg.com/564x/22/d5/4f/22d54f223bc23827d933320f7f66380c.jpg")
+                            .imageUrl("https://picsum.photos/500/500")
                             .build());
         }
         log.info("Notifications initialized successfully");
@@ -117,7 +117,7 @@ public class AppConfig {
                                 .id((long) (i * 10 + j))
                                 .title(title)
                                 .content(message)
-                                .imageUrl("https://i.pinimg.com/564x/5a/83/7d/5a837d657f81cf04983db6f516c9e8bb.jpg")
+                                .imageUrl("https://picsum.photos/500/500")
                                 .category(categoryPost)
                                 .build());
             }
@@ -165,7 +165,7 @@ public class AppConfig {
                         .phone("0123456789")
                         .address("02 Vo Oanh, Ward 25, Binh Thanh District, Ho Chi Minh City, Vietnam")
                         .description("I want to collaborate with The Hanoi Foodstuff and Food Trading Joint Stock Company to supply my agricultural products.")
-                        .photographicEvidenceUrl("https://maynongnghiepbinhminh.com/wp-content/uploads/2022/08/de-an-co.jpg")
+                        .photographicEvidenceUrl("https://picsum.photos/500/500")
                         .status("PENDING")
                         .collab(collab2)
                         .user(userRepository.findById(2L).get())
