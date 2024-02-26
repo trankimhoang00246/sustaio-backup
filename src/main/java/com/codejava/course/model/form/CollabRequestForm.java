@@ -1,25 +1,22 @@
 package com.codejava.course.model.form;
 
 import com.codejava.course.model.entity.CollabRequest;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
 public class CollabRequestForm {
     @NotEmpty(message = "Name is required")
-    @Min(value = 5, message = "Username must be at least 5 characters long")
+    @Size(min = 5, message = "Name must be at least 5 characters long")
     private String fullName;
     @NotEmpty(message = "Email is required")
     @Email(message = "Email is not valid")
     private String email;
     @NotEmpty(message = "Phone is required")
-    @Min(value = 10, message = "Phone must be at least 10 characters long")
+    @Size(min = 10, max = 10, message = "Phone must be 10 characters long")
     private String phone;
     @NotEmpty(message = "Address is required")
-    @Min(value = 5, message = "Address must be at least 5 characters long")
+    @Size(min = 5, message = "Address must be at least 5 characters long")
     private String address;
     @NotEmpty(message = "Description is required")
     private String description;
