@@ -9,6 +9,7 @@ public interface CollabRequestService {
     CollabRequestDto createCollabRequest(CollabRequestForm collabRequestForm);
     String deleteCollabRequest(Long id);
     List<CollabRequestDto> getMyCollabRequests();
+    List<CollabRequestDto> getMyCollabRequestsByStatus(String status);
     CollabRequestDto getCollabRequestById(long id);
     CollabRequestDto updateStatusCollabRequest(String status, long id);
 }

@@ -32,6 +32,11 @@ public class CollabRequestController {
         return ResponseEntity.ok(collabRequestService.deleteCollabRequest(id));
     }
 
+    @GetMapping("/status")
+    public ResponseEntity getMyCollabRequestsByStatus(@RequestParam("value") String value) {
+        return ResponseEntity.ok(collabRequestService.getMyCollabRequestsByStatus(value));
+    }
+
     @PostMapping
     public ResponseEntity createCollabRequest(@Valid @RequestBody  CollabRequestForm collabRequestForm) {
         return ResponseEntity.ok(collabRequestService.createCollabRequest(collabRequestForm));

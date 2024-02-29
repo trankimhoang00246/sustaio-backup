@@ -63,6 +63,14 @@ public class CollabRequestServiceImpl implements CollabRequestService {
     }
 
     @Override
+    public List<CollabRequestDto> getMyCollabRequestsByStatus(String status) {
+        return collabRequestRepository.findAllByUser_UsernameAndStatus(SecurityUtils.getUsernameOfPrincipal(), status)
+                .stream()
+                .map(CollabRequestDto::from)
+                .toList();
+    }
+
+    @Override
     public CollabRequestDto getCollabRequestById(long id) {
         return CollabRequestDto.from(collabRequestRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Collab Request not found with id: " + id)));
