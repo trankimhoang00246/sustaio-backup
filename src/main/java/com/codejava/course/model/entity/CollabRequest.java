@@ -20,6 +20,8 @@ public class CollabRequest extends BaseEntity{
     private String email;
     private String phone;
     private String address;
+    private String title;
+    private String tag;
     @Column(length = 1000000)
     private String description;
     private String photographicEvidenceUrl; //ảnh minh chứng

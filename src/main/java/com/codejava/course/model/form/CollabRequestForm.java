@@ -9,6 +9,11 @@ public class CollabRequestForm {
     @NotEmpty(message = "Name is required")
     @Size(min = 5, message = "Name must be at least 5 characters long")
     private String fullName;
+    @NotEmpty(message = "Title is required")
+    @Size(min = 5, message = "Title must be at least 5 characters long")
+    private String title;
+    @NotEmpty(message = "Tag is required")
+    private String tag;
     @NotEmpty(message = "Email is required")
     @Email(message = "Email is not valid")
     private String email;
@@ -33,6 +38,8 @@ public class CollabRequestForm {
                 .description(collabRequestForm.getDescription())
                 .photographicEvidenceUrl(collabRequestForm.getPhotographicEvidenceUrl())
                 .status("PENDING")
+                .title(collabRequestForm.getTitle())
+                .tag(collabRequestForm.getTag())
                 .build();
     }
 }

@@ -17,6 +17,9 @@ public class CollabRequestDto {
     private String status;
     private CollabDto collabDto;
     private UserDto userDto;
+    private String title;
+    private String tag;
+
 
     public static CollabRequestDto from(CollabRequest collabRequest) {
         return CollabRequestDto.builder()
@@ -30,6 +33,8 @@ public class CollabRequestDto {
                 .status(collabRequest.getStatus())
                 .collabDto(CollabDto.from(collabRequest.getCollab()))
                 .userDto(UserDto.from(collabRequest.getUser()))
+                .title(collabRequest.getTitle())
+                .tag(collabRequest.getTag())
                 .build();
     }
 }
