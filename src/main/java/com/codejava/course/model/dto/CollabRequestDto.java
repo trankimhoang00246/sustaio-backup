@@ -4,6 +4,8 @@ import com.codejava.course.model.entity.CollabRequest;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class CollabRequestDto {
@@ -19,6 +21,8 @@ public class CollabRequestDto {
     private UserDto userDto;
     private String title;
     private String tag;
+    protected LocalDateTime createdAt;
+    protected LocalDateTime updatedAt;
 
 
     public static CollabRequestDto from(CollabRequest collabRequest) {
@@ -35,6 +39,8 @@ public class CollabRequestDto {
                 .userDto(UserDto.from(collabRequest.getUser()))
                 .title(collabRequest.getTitle())
                 .tag(collabRequest.getTag())
+                .createdAt(collabRequest.getCreatedAt())
+                .updatedAt(collabRequest.getUpdatedAt())
                 .build();
     }
 }

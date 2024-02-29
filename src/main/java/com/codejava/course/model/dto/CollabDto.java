@@ -4,6 +4,8 @@ import com.codejava.course.model.entity.Collab;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class CollabDto {
@@ -14,6 +16,8 @@ public class CollabDto {
     private String address;
     private Boolean verified;
     private String coverImageUrl;
+    protected LocalDateTime createdAt;
+    protected LocalDateTime updatedAt;
 
     private CategoryDto categoryDto;
     private UserDto userDto;
@@ -29,6 +33,8 @@ public class CollabDto {
                 .coverImageUrl(collab.getCoverImageUrl())
                 .categoryDto(CategoryDto.from(collab.getCategory()))
                 .userDto(UserDto.from(collab.getUser()))
+                .createdAt(collab.getCreatedAt())
+                .updatedAt(collab.getUpdatedAt())
                 .build();
     }
 }

@@ -4,6 +4,8 @@ import com.codejava.course.model.entity.User;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class UserDto {
@@ -12,6 +14,8 @@ public class UserDto {
     private String avatarUrl;
     private String role;
     private String categoryAccount;
+    protected LocalDateTime createdAt;
+    protected LocalDateTime updatedAt;
 
     public static UserDto from(User user) {
         String categoryAccount = "Farmer";
@@ -29,6 +33,8 @@ public class UserDto {
                 .avatarUrl(user.getAvatarUrl())
                 .role(user.getRole().getName())
                 .categoryAccount(categoryAccount)
+                .createdAt(user.getCreatedAt())
+                .updatedAt(user.getUpdatedAt())
                 .build();
     }
 }
